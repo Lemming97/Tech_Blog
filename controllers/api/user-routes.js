@@ -39,12 +39,6 @@ router.get('/:id', (req, res) => {
             model: Post,
             attributes: ['title']
           }
-        },
-        {
-          model: Post,
-          attributes: ['title'],
-          through: Vote,
-          as: 'voted_posts'
         }
       ]
     })
@@ -65,7 +59,8 @@ router.get('/:id', (req, res) => {
 
 // Create a user
 router.post('/', (req, res) => {
-  // expects {username: 'Lernantino', email: 'lernantino@gmail.com', password: 'password1234'}
+  console.log(req.body)
+  // expects {username: 'Lernantino', password: 'password1234'}
   User.create({
       username: req.body.username,
       password: req.body.password
@@ -87,7 +82,7 @@ router.post('/', (req, res) => {
 
 //login
 router.post('/login', (req, res) => {
-  // expects {email: 'lernantino@gmail.com', password: 'password1234'}
+  // expects {username: 'lmartin442', password: 'password1234'}
   User.findOne({
     where: {
       username: req.body.username
@@ -95,7 +90,7 @@ router.post('/login', (req, res) => {
   }).then(dbUserData => {
     if (!dbUserData) {
       res.status(400).json({
-        message: 'No user with that email address!'
+        message: 'No user with that user name!'
       });
       return;
     }
