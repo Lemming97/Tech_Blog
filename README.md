@@ -80,7 +80,7 @@ THEN I am able to view comments but I am prompted to log in again before I can a
 
 
 ## Link
-<p>To View the Live Site: <a href=""> Click Here</a></p>
+<p>To View the Live Site: <a href="https://powerful-chamber-94617.herokuapp.com/"> Click Here</a></p>
 
 
 ## Usage
